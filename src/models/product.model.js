@@ -1,0 +1,43 @@
+const { mongoose, Schema } = require('mongoose');
+const { toJSON } = require('./plugins');
+
+const productSchema = mongoose.Schema(
+  {
+    _id: Schema.Types.UUID,
+    images: {
+      type: Schema.Types.UUID,
+      ref: 'ProductImage',
+    },
+    productTypeId: {
+      type: Schema.Types.UUID,
+      ref: 'ProductType',
+    },
+    name: {
+      type: String,
+    },
+    description: {
+      type: String,
+    },
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
+    vendor: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+// TODO: add createdAt, updatedAt as plugin.
+// add plugin that converts mongoose to json
+productSchema.plugin(toJSON);
+
+/**
+ * @typedef ProductType
+ */
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;
