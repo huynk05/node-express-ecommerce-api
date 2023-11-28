@@ -1,2 +1,11 @@
 module.exports.Token = require('./token.model');
 module.exports.User = require('./user.model');
+module.exports.Brand = require('./brand.model');
+module.exports.ProductType = require('./product-type.model');
+module.exports.ProductImage = require('./product-image.model');
+module.exports.Product = require('./product.model');
+module.exports.Customer = require('./customer.model');
+module.exports.Order = require('./oder.model');
+module.exports.OrderLine = require('./order-line.model');
+module.exports.ProductVariant = require('./product-variant.model');
+module.exports.Setting = require('./setting.model');
