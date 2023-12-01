@@ -25,6 +25,7 @@ const orderlineSchema = mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { getters: true, virtuals: false },
   }
 );
 

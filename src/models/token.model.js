@@ -30,6 +30,7 @@ const tokenSchema = mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { getters: true, virtuals: false },
   }
 );
 

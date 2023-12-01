@@ -22,6 +22,7 @@ const settingSchema = mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { getters: true, virtuals: false },
   }
 );
 // add plugin that converts mongoose to json
