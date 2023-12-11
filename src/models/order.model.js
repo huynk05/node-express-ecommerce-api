@@ -14,7 +14,7 @@ const orderSchema = mongoose.Schema(
       ref: 'Customer',
     },
     number: {
-      type: Schema.Types.BigInt,
+      type: Number,
     },
     code: {
       type: String,
@@ -39,12 +39,14 @@ const orderSchema = mongoose.Schema(
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }
 );
 // add plugin that converts mongoose to json
 orderSchema.plugin(toJSON);
+userSchema.plugin(paginate);
 
 /**
  * @typedef Order

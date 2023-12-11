@@ -16,17 +16,19 @@ const customerSchema = mongoose.Schema(
       type: String,
     },
     phone: {
-      type: Schema.Types.BigInt,
+      type: Number,
       required: true,
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }
 );
 // add plugin that converts mongoose to json
 customerSchema.plugin(toJSON);
+userSchema.plugin(paginate);
 
 /**
  * @typedef Customer

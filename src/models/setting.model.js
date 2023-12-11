@@ -17,10 +17,11 @@ const settingSchema = mongoose.Schema(
       required: true,
     },
     currency: {
-      type: Schema.Types.BigInt,
+      type: String,
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }

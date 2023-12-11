@@ -20,15 +20,16 @@ const productVariantSchema = mongoose.Schema(
       type: String,
     },
     price: {
-      type: Schema.Types.Decimal128,
+      type: Number,
       default: '0',
     },
     quantity: {
-      type: Schema.Types.BigInt,
+      type: Number,
       default: '1',
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }

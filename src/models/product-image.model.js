@@ -24,6 +24,7 @@ const productImageSchema = mongoose.Schema(
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }
@@ -32,6 +33,7 @@ const productImageSchema = mongoose.Schema(
 // TODO: add createdAt, updatedAt as plugin.
 // add plugin that converts mongoose to json
 productImageSchema.plugin(toJSON);
+userSchema.plugin(paginate);
 
 /**
  * @typedef ProductImage

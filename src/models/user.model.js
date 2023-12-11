@@ -51,6 +51,7 @@ const userSchema = mongoose.Schema(
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }

@@ -17,12 +17,14 @@ const brandSchema = mongoose.Schema(
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }
 );
 // add plugin that converts mongoose to json
 brandSchema.plugin(toJSON);
+brandSchema.plugin(paginate);
 
 /**
  * 

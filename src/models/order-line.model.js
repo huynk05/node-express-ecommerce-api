@@ -17,13 +17,14 @@ const orderlineSchema = mongoose.Schema(
       ref: 'Order',
     },
     quantity: {
-      type: Schema.Types.BigInt,
+      type: Number,
     },
     price: {
-      type: Schema.Types.BigInt,
+      type: Number,
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }
@@ -32,6 +33,7 @@ const orderlineSchema = mongoose.Schema(
 // TODO: add createdAt, updatedAt as plugin.
 // add plugin that converts mongoose to json
 orderlineSchema.plugin(toJSON);
+userSchema.plugin(paginate);
 
 /**
  * @typedef Orderline

@@ -12,6 +12,8 @@ const productSchema = mongoose.Schema(
       type: 'UUID',
       ref: 'ProductImage',
     },
+    //images: [imagesChema] subdocument 1-n
+    //mongoose: https://mongoosejs.com/docs/subdocs.html
     productTypeId: {
       type: 'UUID',
       ref: 'ProductType',
@@ -31,6 +33,7 @@ const productSchema = mongoose.Schema(
     },
   },
   {
+    _id: false,
     timestamps: true,
     toJSON: { getters: true, virtuals: false },
   }
