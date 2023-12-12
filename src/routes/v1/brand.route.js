@@ -15,5 +15,6 @@ router
 router
   .route('/:id')
   .delete(auth('manageUsers'), validate(), brandController.deleteBrand)
+  .patch(auth('manageUsers'), validate(brandValidation.updateBrandByID), brandController.updateBrandById)
 
 module.exports = router;

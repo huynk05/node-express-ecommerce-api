@@ -28,7 +28,6 @@ const customerSchema = mongoose.Schema(
 );
 // add plugin that converts mongoose to json
 customerSchema.plugin(toJSON);
-userSchema.plugin(paginate);
 
 /**
  * @typedef Customer

@@ -8,21 +8,40 @@ const createBrand = {
   })
 }
 
-// const getBrand = {
-//   params: Joi.object().keys({
-//     id: Joi.string().custom(objectId),
-//   })
-// }
-
-const getBrands = {
-  params: Joi.object().keys({
+const searchBrand = {
+  query: Joi.object().keys({
     name: Joi.string().custom(objectId),
     country: Joi.string(),
   })
 }
 
+const getBrandByID = {
+  params: Joi.object().keys({
+    id: Joi.string().custom(objectId),
+  })
+}
+
+const updateBrandByID = {
+  params: Joi.object().keys({
+    id: Joi.string().custom(objectId),
+  }),
+  body: Joi.object().keys({
+    name: Joi.string(),
+    country: Joi.string(),
+  })
+}
+
+const deleteBrandByID = {
+  params: Joi.object().keys({
+    id: Joi.string().custom(objectId),
+  })
+}
+
+
 module.exports = {
   createBrand,
-  // getBrand,
-  getBrands
+  searchBrand,
+  getBrandByID,
+  updateBrandByID,
+  deleteBrandByID
 }

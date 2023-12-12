@@ -20,9 +20,15 @@ const getBrands = catchAsync(async (req, res) => {
     res.status(200).send(brand)
 })
 
+const updateBrandById = catchAsync(async (req, res) => {
+    const brand = await brandService.updateBrandById(req.body, req.params.id)
+    res.status(200).send(brand)
+})
+
 
 module.exports ={
     createBrand,
     deleteBrand,
-    getBrands
+    getBrands,
+    updateBrandById
 }

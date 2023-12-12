@@ -33,7 +33,6 @@ const orderlineSchema = mongoose.Schema(
 // TODO: add createdAt, updatedAt as plugin.
 // add plugin that converts mongoose to json
 orderlineSchema.plugin(toJSON);
-userSchema.plugin(paginate);
 
 /**
  * @typedef Orderline

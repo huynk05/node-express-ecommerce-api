@@ -26,9 +26,17 @@ const deletBrandById = async (brandId) => {
     return await brand.deleteOne()
 }
 
+const updateBrandById = async (bodyBrand, brandId) => {
+    const brand = await getBrandById(brandId)
+    if (!brand) {
+        throw new ApiError(httpStatus.BAD_REQUEST, 'Brand not found');
+    }
+    return await Brand.save(bodyBrand)
+}
 
 module.exports = {
     createBrand,
     getBrands,
-    deletBrandById
+    deletBrandById,
+    updateBrandById
 }

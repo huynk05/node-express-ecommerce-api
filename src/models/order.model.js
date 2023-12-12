@@ -46,7 +46,6 @@ const orderSchema = mongoose.Schema(
 );
 // add plugin that converts mongoose to json
 orderSchema.plugin(toJSON);
-userSchema.plugin(paginate);
 
 /**
  * @typedef Order
