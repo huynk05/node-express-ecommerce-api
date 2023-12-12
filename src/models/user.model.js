@@ -3,9 +3,14 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const { toJSON, paginate } = require('./plugins');
 const { roles } = require('../config/roles');
+const { randomUUID } = require('crypto');
 
 const userSchema = mongoose.Schema(
   {
+    _id: {
+      type: 'UUID',
+      default: () => randomUUID()
+    },
     name: {
       type: String,
       required: true,
@@ -46,7 +51,9 @@ const userSchema = mongoose.Schema(
     },
   },
   {
+    _id: false,
     timestamps: true,
+    toJSON: { getters: true, virtuals: false },
   }
 );
 

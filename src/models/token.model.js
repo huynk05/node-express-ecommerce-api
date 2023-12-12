@@ -1,16 +1,21 @@
 const mongoose = require('mongoose');
 const { toJSON } = require('./plugins');
 const { tokenTypes } = require('../config/tokens');
+const { randomUUID } = require('crypto');
 
 const tokenSchema = mongoose.Schema(
   {
+    _id: {
+      type: 'UUID',
+      default: () => randomUUID()
+    },
     token: {
       type: String,
       required: true,
       index: true,
     },
     user: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: 'UUID',
       ref: 'User',
       required: true,
     },
@@ -29,7 +34,9 @@ const tokenSchema = mongoose.Schema(
     },
   },
   {
+    _id: false,
     timestamps: true,
+    toJSON: { getters: true, virtuals: false },
   }
 );
 
