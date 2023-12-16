@@ -1,4 +1,4 @@
-const { brandController } = require("../../controllers");
+      const { BrandController } = require("../../controllers");
 const auth = require("../../middlewares/auth");
 const validate = require('../../middlewares/validate');
 
@@ -9,12 +9,12 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(auth('manageUsers'), validate(brandValidation.getBrands), brandController.getBrands)
-  .post(auth('manageUsers'),validate(brandValidation.createBrand), brandController.createBrand);
+  .get(auth('manageUsers'), BrandController.getBrands)
+  .post(auth('manageUsers'),validate(brandValidation.createBrand), BrandController.createBrand);
 
 router
   .route('/:id')
-  .delete(auth('manageUsers'), validate(), brandController.deleteBrand)
-  .patch(auth('manageUsers'), validate(brandValidation.updateBrandByID), brandController.updateBrandById)
+  .delete(auth('manageUsers'), validate(brandValidation.deleteBrandByID), BrandController.deleteBrand)
+  .patch(auth('manageUsers'), validate(brandValidation.updateBrandByID), BrandController.updateBrandById)
 
 module.exports = router;

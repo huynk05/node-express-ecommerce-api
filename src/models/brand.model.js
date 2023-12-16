@@ -1,6 +1,7 @@
 const { mongoose, Schema } = require('mongoose');
 const { toJSON } = require('./plugins');
 const { randomUUID } = require('crypto');
+const paginate = require('./plugins/paginate.plugin');
 
 const brandSchema = mongoose.Schema(
   {

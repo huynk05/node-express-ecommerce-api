@@ -1,5 +1,5 @@
 const { mongoose, Schema } = require('mongoose');
-const { toJSON } = require('./plugins');
+const { toJSON, paginate } = require('./plugins');
 const { randomUUID } = require('crypto');
 
 const productTypeSchema = mongoose.Schema(
@@ -27,6 +27,12 @@ const productTypeSchema = mongoose.Schema(
 // TODO: add createdAt, updatedAt as plugin.
 // add plugin that converts mongoose to json
 productTypeSchema.plugin(toJSON);
+productTypeSchema.plugin(paginate);
+
+productTypeSchema.statics.isProductTypeTaken = async function (name, brandId) {
+  const type = await this.findOne({name, brandId})
+  return !!type
+}
 
 /**
  * @typedef ProductType

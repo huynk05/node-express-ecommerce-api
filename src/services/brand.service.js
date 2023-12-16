@@ -14,12 +14,12 @@ const getBrands = async (filter, options) => {
     return await Brand.paginate(filter, options)
 }
 
-const getBrand = async (brandId) => {
+const getBrandById = async (brandId) => {
     return await Brand.findById(brandId)
 }
 
 const deletBrandById = async (brandId) => {
-    const brand = await getBrand(brandId)
+    const brand = await getBrandById(brandId)
     if (!brand) {
         throw new ApiError(httpStatus.BAD_REQUEST, 'Brand not found');
     }

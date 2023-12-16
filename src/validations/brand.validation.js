@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { objectId } = require("./custom.validation");
+const { UUID } = require("./custom.validation");
 
 const createBrand = {
   body: Joi.object().keys({
@@ -10,20 +10,20 @@ const createBrand = {
 
 const searchBrand = {
   query: Joi.object().keys({
-    name: Joi.string().custom(objectId),
+    name: Joi.string().custom(UUID),
     country: Joi.string(),
   })
 }
 
 const getBrandByID = {
   params: Joi.object().keys({
-    id: Joi.string().custom(objectId),
+    id: Joi.string().custom(UUID),
   })
 }
 
 const updateBrandByID = {
   params: Joi.object().keys({
-    id: Joi.string().custom(objectId),
+    id: Joi.string().custom(UUID),
   }),
   body: Joi.object().keys({
     name: Joi.string(),
@@ -33,7 +33,7 @@ const updateBrandByID = {
 
 const deleteBrandByID = {
   params: Joi.object().keys({
-    id: Joi.string().custom(objectId),
+    id: Joi.string().custom(UUID),
   })
 }
 
